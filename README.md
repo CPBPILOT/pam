@@ -62,6 +62,6 @@ If you want to receive updates for PAM put this at the end of the moonraker.conf
 type: git_repo
 primary_branch: main
 path: ~/pam
-origin: https://github.com/HelgeKeck/pam.git
+origin: https://github.com/CPBPILOT/pam.git
 is_system_service: False
 ```
