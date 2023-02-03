@@ -40,16 +40,16 @@ class PAM:
         mesh_y1 = min(self.y1, self.bed_mesh.bmc.orig_config['mesh_max'][1])
         mesh_cx = max(3, int((mesh_x1 - mesh_x0) / self.probe_x_step))
         mesh_cy = max(3, int((mesh_y1 - mesh_y0) / self.probe_y_step))
-        while (mesh_x1 - mesh_x0)/(mesh_cx-1) >= self.probe_x_step
+        while (mesh_x1 - mesh_x0)/(mesh_cx-1) >= self.probe_x_step:
             mesh_cx = mesh_cx + 1
-        while (mesh_y1 - mesh_y0)/(mesh_cy-1) >= self.probe_y_step
+        while (mesh_y1 - mesh_y0)/(mesh_cy-1) >= self.probe_y_step:
             mesh_cy = mesh_cy + 1
         if self.bed_mesh.bmc.orig_config['algo'] == 'lagrange' or (self.bed_mesh.bmc.orig_config['algo'] == 'bicubic' and (mesh_cx < 4 or mesh_cy < 4)):
             mesh_cx = min(6, mesh_cx)
             mesh_cy = min(6, mesh_cy)
         # if self.optimus_prime == True:
         #     self.set_priming_location(mesh_x0, mesh_y0, mesh_x1, mesh_y1)
-        self.gcode.respond_raw("PAM v0.1.7.2 bed mesh leveling...")
+        self.gcode.respond_raw("PAM v0.1.7.3 bed mesh leveling...")
         self.gcode.respond_raw("This is a test")
         self.gcode.run_script_from_command('BED_MESH_CALIBRATE PROFILE=ratos mesh_min={0},{1} mesh_max={2},{3} probe_count={4},{5} relative_reference_index=-1'.format(mesh_x0, mesh_y0, mesh_x1, mesh_y1, mesh_cx, mesh_cy))
 
