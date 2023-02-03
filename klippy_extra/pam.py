@@ -40,9 +40,9 @@ class PAM:
         mesh_y1 = min(self.y1, self.bed_mesh.bmc.orig_config['mesh_max'][1])
         mesh_cx = max(3, int((mesh_x1 - mesh_x0) / self.probe_x_step))
         mesh_cy = max(3, int((mesh_y1 - mesh_y0) / self.probe_y_step))
-        while (mesh_x1 - mesh_x0)/(mesh_cx-1) >= self.probe_x_step:
+        while (mesh_x1 - mesh_x0)/(mesh_cx-1) > self.probe_x_step:
             mesh_cx = mesh_cx + 1
-        while (mesh_y1 - mesh_y0)/(mesh_cy-1) >= self.probe_y_step:
+        while (mesh_y1 - mesh_y0)/(mesh_cy-1) > self.probe_y_step:
             mesh_cy = mesh_cy + 1
         if self.bed_mesh.bmc.orig_config['algo'] == 'lagrange' or (self.bed_mesh.bmc.orig_config['algo'] == 'bicubic' and (mesh_cx < 4 or mesh_cy < 4)):
             mesh_cx = min(6, mesh_cx)
