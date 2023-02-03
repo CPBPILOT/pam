@@ -1,3 +1,5 @@
+This is a Fork of HelgeKeck PAM, The only differance is a added check to insure the point to point distance of the new mesh is less than or equal to the point to point distance from what is specified in the main printer.cfg file.
+
 # PAM for RatOS
 Print Area Mesh for RatOS
 
@@ -10,7 +12,7 @@ Adds dynamic mesh calibration to your RatOS printer.
 SSH into your Raspberry PI and execute:
 ```
 cd ~/
-git clone https://github.com/HelgeKeck/pam.git
+git clone https://github.com/CPBPILOT/pam.git
 bash ~/pam/install.sh
 ```
 
